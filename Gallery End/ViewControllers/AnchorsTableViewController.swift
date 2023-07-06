@@ -96,8 +96,7 @@ class AnchorsTableViewController: UITableViewController {
     
     func saveButtonPressed(){
         //Perform the segue
-        performSegue(withIdentifier: "anchorToScanningSegue", sender: nil)
-        
+        self.dismiss(animated: true)
         //TODO: Actually save the file
     }
     

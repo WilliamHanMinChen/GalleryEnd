@@ -73,6 +73,8 @@ class WorldScanningViewController: UIViewController, ARSCNViewDelegate, ARSessio
     //Ratio of impact time, smaller value = faster haptic feedback
     var impactRatio = 3.0
     
+    //TESTING FOR ONLY ADDING CHILD NODES
+    var rootWayPointNode: SCNNode?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -233,7 +235,6 @@ class WorldScanningViewController: UIViewController, ARSCNViewDelegate, ARSessio
     
     
     ///This function is called whenever the scene adds a node, including when the world is loaded a anchors are being added again
-    ///
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         
         
@@ -270,7 +271,7 @@ class WorldScanningViewController: UIViewController, ARSCNViewDelegate, ARSessio
         case .POI:
             modelName = "POI"
         case .WayPoint:
-            modelName = "Way point"
+            modelName = "test"
         default:
             modelName = "cup"
         }
@@ -282,11 +283,21 @@ class WorldScanningViewController: UIViewController, ARSCNViewDelegate, ARSessio
                 fatalError("can't load virtual object")
         }
         
+        
+        object.name = modelName
+        
         object.load()
         
         //Add it to the scene
         node.addChildNode(object)
         
+        //If we have a root waypoint node
+        if let rootWayPointNode = rootWayPointNode{
+            
+        } else {
+            //We dont, set this one up as one
+            rootWayPointNode = node
+        }
         
         //Load audio files if it has any
         if !anchor.linkedDocumentID.isEmpty{
@@ -317,19 +328,19 @@ class WorldScanningViewController: UIViewController, ARSCNViewDelegate, ARSessio
                                     //Load them
                                     let closeAudioSource = SCNAudioSource(url: closeAudioURL)!
                                     closeAudioSource.loops = true
-                                    closeAudioSource.volume = 0.05
+                                    closeAudioSource.volume = 0.12
                                     closeAudioSource.load()
                                     closeAudioSource.isPositional = true
 
                                     let mediumAudioSource = SCNAudioSource(url: mediumAudioURL)!
                                     mediumAudioSource.loops = true
-                                    mediumAudioSource.volume = 0.1
+                                    mediumAudioSource.volume = 0.18
                                     mediumAudioSource.load()
                                     mediumAudioSource.isPositional = true
 
                                     let farAudioSource = SCNAudioSource(url: farAudioURL)!
                                     farAudioSource.loops = true
-                                    farAudioSource.volume = 0.15
+                                    farAudioSource.volume = 0.3
                                     farAudioSource.load()
                                     farAudioSource.isPositional = true
                                     
@@ -362,7 +373,7 @@ class WorldScanningViewController: UIViewController, ARSCNViewDelegate, ARSessio
                                 //Setup an audio source
                                 let musicSource = SCNAudioSource(url: fileURL)!
                                 musicSource.loops = true
-                                musicSource.volume = 0.15
+                                musicSource.volume = 0.3
                                 musicSource.load()
                                 musicSource.isPositional = true
                                 //Add our source to our object node
@@ -383,15 +394,50 @@ class WorldScanningViewController: UIViewController, ARSCNViewDelegate, ARSessio
         }
         
         print("Added :\(anchor.name!)")
-        
+        //print("Added Node: \(object.description) to node: \(node.description)")
         
         
         
     }
     
-    //Tap on the scene view
+    /// Returns a `SCNReferenceNode` if one exists as an ancestor to the provided node. Used to get the object node
+    static func existingObjectContainingNode(_ node: SCNNode) -> SCNReferenceNode? {
+        if let virtualObjectRoot = node as? SCNReferenceNode {
+            return virtualObjectRoot
+        }
+        
+        guard let parent = node.parent else { return nil }
+        
+        // Recurse up to check if the parent is a `SCNReferenceNode`.
+        return existingObjectContainingNode(parent)
+    }
     
+    /// Hit tests against the `sceneView` to find an object at the provided point.
+    func virtualObject(at point: CGPoint) -> SCNReferenceNode? {
+        let hitTestOptions: [SCNHitTestOption: Any] = [.boundingBoxOnly: true]
+        let hitTestResults = sceneView.hitTest(point, options: hitTestOptions)
+        
+        return hitTestResults.lazy.compactMap { result in
+            return WorldScanningViewController.existingObjectContainingNode(result.node)
+        }.first
+    }
+    
+    
+    //Tap on the scene view
     @IBAction func tappedSceneView(_ sender: UITapGestureRecognizer) {
+        
+        
+        //Get which object the user tapped on if any
+        //Get the tap location inside our scene view
+        let touchLocation = sender.location(in: sceneView)
+        
+        // Look for an object directly under the `touchLocation`.
+        if let object = virtualObject(at: touchLocation) {
+            //If it is an object, just return
+            print("Tapped: \(object.name)")
+            return
+        }
+        
         
         
         //Gets a hit test, a point on a detected plane
@@ -399,11 +445,23 @@ class WorldScanningViewController: UIViewController, ARSCNViewDelegate, ARSessio
             return
         }
         
+        
         //Get the ray cast result
         guard let result = sceneView.session.raycast(hitTestResult).first else {
             print("Could not get raycast result, ignoring the tap")
             return
         }
+        
+//        let results = sceneView.hitTest(touchLocation, options: nil)
+//
+//        for r in results{
+//            print("Hit: \(r.node.name) of type: \(type(of: r.node)) with parent being type: \(r.node.parent)")
+//            if let scnreferencenode = r.node.parent?.parent as? SCNReferenceNode{
+//                print("Also a reference node")
+//                return
+//            }
+//        }
+//
     
         //Draw something where the user tapped
         let newImage = sceneView.snapshot()
@@ -457,6 +515,14 @@ class WorldScanningViewController: UIViewController, ARSCNViewDelegate, ARSessio
                 objectAnchor = CustomARAnchor(image: processedImage, transform: result.worldTransform, givenName: text, anchorType: .WayPoint)
             default:
                 objectAnchor = ARAnchor(name: text, transform: result.worldTransform)
+            }
+            
+            
+            //If we have a root waypoint node
+            if let rootWayPointNode = self.rootWayPointNode{
+                //Add this node as a child node
+                
+                
             }
             
             
@@ -791,18 +857,6 @@ class WorldScanningViewController: UIViewController, ARSCNViewDelegate, ARSessio
         //Get the distance
         let distance = length(cameraPosition - closestImage.transform.columns.3)
         
-//        //Depending on the distance, we give intervaled feedback
-//        if Date().timeIntervalSince(lastImapctTime) > ((Double(distance)/impactRatio)) && distance > Float(FOCUS_DISTANCE) {
-//            if distance < 2.0 { //Less than a meter away
-//                radarHaptic(impactIntensity: .medium, distance: distance)
-//            } else if distance < 3.0 { //Less than 2.5 meters away
-//                radarHaptic(impactIntensity: .medium, distance: distance)
-//            } else { //Further than that
-//                radarHaptic(impactIntensity: .light, distance: distance)
-//            }
-//            lastImapctTime = Date()
-//        }
-        
         //Depending on the distance, we give intervaled feedback
         if Date().timeIntervalSince(lastImapctTime) > ((Double(distance)/impactRatio)){
             if distance < 2.0 { //Less than a meter away
@@ -815,6 +869,16 @@ class WorldScanningViewController: UIViewController, ARSCNViewDelegate, ARSessio
             lastImapctTime = Date()
         }
         
+        
+        //Hide nodes that are far away
+        for anchor in anchors{
+            let distance = length(cameraPosition - anchor.transform.columns.3)
+            if distance >= 6{
+                sceneView.node(for: anchor)?.isPaused = true
+            } else {
+                sceneView.node(for: anchor)?.isPaused = false
+            }
+        }
         
     }
     

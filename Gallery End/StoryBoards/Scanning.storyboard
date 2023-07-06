@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,7 +25,7 @@
                                 </connections>
                             </arscnView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbO-Lj-MGo" userLabel="Restart Experience Button Icon">
-                                <rect key="frame" x="341" y="59" width="52" height="35"/>
+                                <rect key="frame" x="341" y="0.0" width="52" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="a1E-52-vX0"/>
                                     <constraint firstAttribute="width" constant="52" id="xKQ-2H-q7k"/>
@@ -38,9 +39,9 @@
                                 </connections>
                             </button>
                             <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="If8-fW-5Or" userLabel="Mapping Status View">
-                                <rect key="frame" x="40" y="59" width="166.33333333333334" height="56.333333333333343"/>
+                                <rect key="frame" x="40" y="0.0" width="166" height="57"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Alt-DZ-we0">
-                                    <rect key="frame" x="0.0" y="0.0" width="166.33333333333334" height="56.333333333333343"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="166" height="57"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mapping: Limited Tracking: Initializing" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Zf-cD-vmx" userLabel="Status Label">
@@ -68,7 +69,7 @@
                                 </userDefinedRuntimeAttributes>
                             </visualEffectView>
                             <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2sg-3n-Djx" userLabel="Session Info View">
-                                <rect key="frame" x="40" y="665" width="313" height="38"/>
+                                <rect key="frame" x="40" y="699" width="313" height="38"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="q4i-Xn-em2">
                                     <rect key="frame" x="0.0" y="0.0" width="313" height="38"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -98,7 +99,7 @@
                                 </userDefinedRuntimeAttributes>
                             </visualEffectView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0c-HU-Z3C">
-                                <rect key="frame" x="40" y="743" width="146.66666666666666" height="35"/>
+                                <rect key="frame" x="40" y="777" width="146.66666666666666" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Load World"/>
                                 <connections>
@@ -106,7 +107,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wg8-eb-lrT">
-                                <rect key="frame" x="206.66666666666663" y="743" width="146.33333333333337" height="35"/>
+                                <rect key="frame" x="206.66666666666663" y="777" width="146.33333333333337" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Save World"/>
                                 <connections>
@@ -114,7 +115,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQa-pM-HWS">
-                                <rect key="frame" x="40" y="786" width="146.66666666666666" height="36"/>
+                                <rect key="frame" x="40" y="820" width="146.66666666666666" height="2"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Auto-Load"/>
                                 <connections>
@@ -122,7 +123,7 @@
                                 </connections>
                             </button>
                             <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eLM-85-pzr">
-                                <rect key="frame" x="158.66666666666666" y="706" width="76" height="33"/>
+                                <rect key="frame" x="158.66666666666666" y="740" width="76" height="33"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="7w5-ZK-335">
                                     <rect key="frame" x="0.0" y="0.0" width="76" height="33"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -150,7 +151,7 @@
                                 </userDefinedRuntimeAttributes>
                             </visualEffectView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zbG-bA-TNX">
-                                <rect key="frame" x="206.66666666666663" y="786.66666666666663" width="146.33333333333337" height="35"/>
+                                <rect key="frame" x="206.66666666666663" y="803.66666666666663" width="146.33333333333337" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Modify"/>
                                 <connections>
@@ -228,7 +229,7 @@
                                 <gestureRecognizers/>
                             </arscnView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVD-0p-OWo" userLabel="Restart Experience Button Icon">
-                                <rect key="frame" x="341" y="59" width="52" height="35"/>
+                                <rect key="frame" x="341" y="0.0" width="52" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="52" id="5ti-aw-Cd0"/>
                                     <constraint firstAttribute="height" constant="35" id="UvV-Qt-SAO"/>
@@ -239,7 +240,7 @@
                                 <state key="highlighted" image="restartPressed"/>
                             </button>
                             <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fDe-pO-0rr" userLabel="Mapping Status View">
-                                <rect key="frame" x="40" y="59" width="166" height="57"/>
+                                <rect key="frame" x="40" y="0.0" width="166" height="57"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="K72-dt-Bab">
                                     <rect key="frame" x="0.0" y="0.0" width="166" height="57"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -269,7 +270,7 @@
                                 </userDefinedRuntimeAttributes>
                             </visualEffectView>
                             <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Lw-Ah-DhE" userLabel="Session Info View">
-                                <rect key="frame" x="40" y="665" width="313" height="38"/>
+                                <rect key="frame" x="40" y="699" width="313" height="38"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Npw-o5-IKz">
                                     <rect key="frame" x="0.0" y="0.0" width="313" height="38"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -307,9 +308,9 @@
                                 </connections>
                             </button>
                             <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m4j-29-eX5" userLabel="Beacon Status View">
-                                <rect key="frame" x="40" y="124" width="124" height="56"/>
+                                <rect key="frame" x="40" y="65" width="123" height="56"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rlH-yW-cfx">
-                                    <rect key="frame" x="0.0" y="0.0" width="124" height="56"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="123" height="56"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RSSI: NA Disstance: NA" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJa-Q0-6XI" userLabel="Status Label">
@@ -372,14 +373,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mxK-px-Ofg" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Qpb-Bm-ymN"/>
             </objects>
-            <point key="canvasLocation" x="1323" y="5"/>
+            <point key="canvasLocation" x="1322.9007633587785" y="4.9295774647887329"/>
         </scene>
         <!--Anchors-->
         <scene sceneID="D2w-jc-o00">
             <objects>
                 <tableViewController id="Kb7-bJ-fCv" customClass="AnchorsTableViewController" customModule="Gallery_End" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="tAT-e9-ZMn">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -397,9 +398,9 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NCg-e6-27a">
-                                            <rect key="frame" x="267" y="15.999999999999996" width="61" height="34.666666666666657"/>
+                                            <rect key="frame" x="261" y="15.999999999999996" width="67" height="34.666666666666657"/>
                                             <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="filled" title="Save"/>
+                                            <buttonConfiguration key="configuration" style="filled" title="Close"/>
                                             <connections>
                                                 <action selector="saveButtonPressed:" destination="ZjF-3h-iYr" eventType="touchUpInside" id="5jV-Vm-QLj"/>
                                                 <action selector="saveButtonPressed:" destination="att-q4-TXL" eventType="touchUpInside" id="uTU-Es-uSm"/>
@@ -525,7 +526,7 @@
             <objects>
                 <tableViewController id="U3h-Sb-dhh" customClass="LinkAnchorTableViewController" customModule="Gallery_End" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="8nt-X9-4zm">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" text="" id="Heh-xa-vdc">
@@ -717,14 +718,14 @@
             <objects>
                 <tableViewController id="tS6-oY-Ths" customClass="WorldFilesTableViewController" customModule="Gallery_End" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="Y9B-yo-BoH">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="worldFileCell" id="qL9-4S-jfq" customClass="WorldFilesTableViewCell" customModule="Gallery_End" customModuleProvider="target">
-                                <rect key="frame" x="20" y="55.333332061767578" width="353" height="77.666664123535156"/>
+                                <rect key="frame" x="20" y="55.333332061767578" width="353" height="77"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qL9-4S-jfq" id="XBb-ts-Gb7">
-                                    <rect key="frame" x="0.0" y="0.0" width="353" height="77.666664123535156"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="353" height="77"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCM-zF-iHK">
@@ -738,13 +739,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubF-Pe-jtq">
-                                            <rect key="frame" x="20" y="40" width="36" height="21.666666666666671"/>
+                                            <rect key="frame" x="20" y="40" width="36" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBU-qk-trc">
-                                            <rect key="frame" x="261" y="40.666666666666664" width="32" height="20.333333333333336"/>
+                                            <rect key="frame" x="261" y="40.333333333333336" width="32" height="20.333333333333336"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
